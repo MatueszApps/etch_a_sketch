@@ -11,13 +11,19 @@ document.querySelector('.btn').addEventListener('click', function() {
             square.style.width = '16px'; // Set the size of the square to 16x16 pixels
             square.style.height = '16px';
             square.style.border = '1px solid black'; // Set the border of the square
+            square.style.display = 'flex'; // Make squares sit in a line
+
+            // Add a mouseover event to change the background color to green permanently
+            square.addEventListener('mouseover', function() {
+                this.style.backgroundColor = 'green';
+            });
+
             container.appendChild(square);
         }
     } else {
         alert("Please enter a valid number.");
     }
 });
-
 
 
 //square.style.display = 'flex'; // Make squares sit in a line
