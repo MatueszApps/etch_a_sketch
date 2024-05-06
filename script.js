@@ -11,8 +11,6 @@ document.querySelector('.btn').addEventListener('click', function() {
             square.style.width = '16px'; // Set the size of the square to 16x16 pixels
             square.style.height = '16px';
             square.style.border = '1px solid black'; // Set the border of the square
-            square.style.display = 'inline-block'; // Make squares sit in a line
-            
             container.appendChild(square);
         }
     } else {
@@ -20,3 +18,7 @@ document.querySelector('.btn').addEventListener('click', function() {
     }
 });
 
+
+
+//square.style.display = 'flex'; // Make squares sit in a line
+            //square.style.flexDirection = 'row';
