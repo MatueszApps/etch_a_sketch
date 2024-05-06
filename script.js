@@ -6,16 +6,21 @@ document.querySelector('.btn').addEventListener('click', function() {
     numSquares = parseInt(numSquares); // Convert string input to integer
 
     if (!isNaN(numSquares) && numSquares > 0) {
+        let decrementAmount = 255 / numSquares; // Determine color decrement amount
+        let currentColorValue = 255; // Start with white (RGB: 255, 255, 255)
+
         for (let i = 0; i < numSquares; i++) {
             const square = document.createElement('div');
-            square.style.width = '16px'; // Set the size of the square to 16x16 pixels
+            square.style.width = '16px';
             square.style.height = '16px';
-            square.style.border = '1px solid black'; // Set the border of the square
-            square.style.display = 'flex'; // Make squares sit in a line
+            square.style.border = '1px solid black';
+            square.style.display = 'flex';
+            square.style.backgroundColor = `rgb(${currentColorValue}, ${currentColorValue}, ${currentColorValue})`;
 
-            // Add a mouseover event to change the background color to green permanently
             square.addEventListener('mouseover', function() {
-                this.style.backgroundColor = 'green';
+                currentColorValue -= decrementAmount; // Decrease the RGB value
+                currentColorValue = Math.max(currentColorValue, 0); // Ensure the color value doesn't go below 0
+                this.style.backgroundColor = `rgb(${currentColorValue}, ${currentColorValue}, ${currentColorValue})`;
             });
 
             container.appendChild(square);
@@ -24,7 +29,3 @@ document.querySelector('.btn').addEventListener('click', function() {
         alert("Please enter a valid number.");
     }
 });
-
-
-//square.style.display = 'flex'; // Make squares sit in a line
-            //square.style.flexDirection = 'row';
